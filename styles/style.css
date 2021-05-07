@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
 body {
   height: 100vh;
   background-color: #f6f9fc;
@@ -13,8 +18,93 @@ body {
   height: 700px;
   background-color: #fff;
   border-radius: 15px;
-  margin-bottom: 80px;
+  margin-bottom: 50px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.controls .controls-btns {
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.controls-btns button {
+  all: unset;
+  cursor: pointer;
+  width: 80px;
+  background-color: #fff;
+  text-align: center;
+  margin-right: 10px;
+  padding: 5px 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 20ms ease-in-out;
+}
+
+.controls-btns button:active {
+  transform: scale(0.98);
+}
+
+.controls-btns button:last-child {
+  margin-right: 0;
+}
+
+.controls-btns .fill-btn,
+.controls-btns .save-btn {
+  position: relative;
+  overflow: hidden;
+  color: #000;
+  transition: color 200ms ease-in-out;
+}
+
+.controls-btns .fill-btn:hover,
+.controls-btns .save-btn:hover {
+  color: #fff;
+  background-color: transparent;
+}
+
+.controls-btns .fill-btn::before {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: 'Fill';
+  top: 30px;
+  left: 0;
+  width: 80px;
+  padding: 5px 0;
+  background-color: #000;
+  opacity: 0.6;
+  transition: top 200ms ease-in-out;
+}
+
+.controls-btns .save-btn::before {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: 'Save';
+  top: -30px;
+  left: 0;
+  width: 80px;
+  padding: 5px 0;
+  background-color: #000;
+  opacity: 0.6;
+  transition: top 200ms ease-in-out;
+}
+
+.controls-btns .fill-btn:hover::before,
+.controls-btns .save-btn:hover::before {
+  top: 0;
 }
 
 .controls .controls-colors {
@@ -36,4 +126,8 @@ body {
 
 .controls-colors .color-picker:hover {
   top: -5px;
+}
+
+.controls .controls-range {
+  margin-bottom: 20px;
 }
