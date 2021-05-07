@@ -96,7 +96,11 @@ function onMouseMove(event) {
 
 <br/>
 
-> 마우스가 캔버스에서 클릭되었을 때도 이벤트로 만들어주어야함. -> 이걸로 그림 그러야하니까 5. `let painting = false` 선언 6. `canvas.addEventListener('mousedown', onMouseDown)` 생성 7. onMouseDown function 생성
+> 마우스가 캔버스에서 클릭되었을 때도 이벤트로 만들어주어야함. -> 이걸로 그림 그러야하니까
+
+5.  `let painting = false` 선언
+6.  `canvas.addEventListener('mousedown', onMouseDown)` 생성
+7.  onMouseDown function 생성
 
 ```javascript
 function onMouseDown(event) {
@@ -106,8 +110,9 @@ function onMouseDown(event) {
 
 <br/>
 
-> 유효성 검사 및 예외 처리 (Stop Painting 을 외칠 자리를 찾아라.)  
-> 8. stopPainting Function 만들기
+> 유효성 검사 및 예외 처리 (Stop Painting 을 외칠 자리를 찾아라.)
+
+8. stopPainting Function 만들기
 
 ```javascript
 function stopPainting() {
