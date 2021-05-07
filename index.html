@@ -4,11 +4,31 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <title>PaintJS</title>
   </head>
   <body>
+    <canvas id="jsCanvas" class="canvas"></canvas>
+    <div class="controls">
+      <div class="controls-colors" id="jsColor">
+        <div class="color-picker" style="background-color: #2c2c2c"></div>
+        <div class="color-picker" style="background-color: #fff"></div>
+        <div class="color-picker" style="background-color: #ff3b30"></div>
+        <div class="color-picker" style="background-color: #ff9500"></div>
+        <div class="color-picker" style="background-color: #ffcc00"></div>
+        <div class="color-picker" style="background-color: #4cd963"></div>
+        <div class="color-picker" style="background-color: #5ac8fa"></div>
+        <div class="color-picker" style="background-color: #0579ff"></div>
+        <div class="color-picker" style="background-color: #5856d6"></div>
+      </div>
+    </div>
+
     <script src="app.js"></script>
   </body>
 </html>
