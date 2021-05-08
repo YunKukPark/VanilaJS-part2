@@ -247,6 +247,8 @@ function onMouseMove(event) {
 }
 ```
 
+## 2.2 Recap!
+
 > 그런데 Draw 가 실제로 되지 않고 있는데 왜인가요?
 >
 > > Canvas 에 사이즈를 안 줘서 그런것 같아요...  
@@ -312,3 +314,65 @@ if (canvas) {
   canvas.addEventListener('mouseleave', stopPainting)
 }
 ```
+
+## 2.3 Changing Color
+
+> Color-Picker
+
+1. `document.getElementsByClassName('jsColor')` 를 통해 `jsColor` Class 를 가지고 있는 HTML 요소를 저장해둔다.
+
+```planetext
+output > HTMLCollection(9)
+```
+
+2. HTMLCollection -> Array
+
+> 우리가 원하는 값은 Array 형식의 값이다.
+
+```javascript
+Array.from(colors).forEach((color) =>
+  color.addEventListener('click', handleColorClick)
+)
+```
+
+> 구문 해석  
+> `Array.from(colors)` => 위에 선언한 `colors => HTMLCollection(9)` 를 `Array` 형식으로 변환
+>
+> ```javascript
+> Array.from(colors).forEach((color) =>
+>   color.addEventListener('click', handleColorClick)
+> )
+> ```
+>
+> => colors Array 에 `color` 라는 변수를 만들고 `color`에 `click EventListener` 을 추가하여 `click` 시 `handleColorClick` 함수를 호출한다.
+
+<br/>
+
+| Attr, Method Name                          | Desc                                                                       |
+| ------------------------------------------ | -------------------------------------------------------------------------- |
+| Array.length                               | 값이 1인 Array 생성자의 길이 속성                                          |
+| get_Array[@@species]                       | 파싱 객체를 생성하는데 사용하는 생성자                                     |
+| **Array.from()**                           | 유사 배열 또는 반복 가능한 객체로부터 새로운 `Array` 인스턴스를 생성       |
+| **Array.forEach(`callback`(`currValue`))** | 주어진 `callback` 을 배열에 있는 각 요소에 대해 오름차순으로 한 번씩 실행. |
+
+<br/>
+
+3. handleColorClick function 만들기
+
+> 아래의 Array forEach 문에서 호출한 함수 구현  
+> 이 함수는 `jsColor 가 Click` 되었을 때 `ctx`의 윤곽선색깔(`strokeStyle`) 을 계속해서 바꿔줘야 한다.
+
+```javascript
+function handleColorClick(event) {
+  const color = event.target.style.backgroundColor
+  ctx.strokeStyle = color
+}
+```
+
+> **구문 해석**  
+> `color = event.target.style.backgroundColor`  
+> `event.target` => **이벤트가 발생한 html Tag 값 반환**  
+> `event.target.style` => **위 html Tag 의 style Object 반환**  
+> `event.target.style.backgroundColor` => **위 style Object 의 backgroundColor 값 반환**
+
+> **최종적으로 `ctx.strokeStyle` 에 값을 넣어주면, color-picker 를 클릭할 때 마다, 색깔이 계속해서 바뀌게 된다.**
