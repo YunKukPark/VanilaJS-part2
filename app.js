@@ -1,16 +1,23 @@
+// CONSTANT 선언부
 const canvas = document.getElementById('jsCanvas')
 const ctx = canvas.getContext('2d')
 const colors = document.getElementsByClassName('jsColor')
 const range = document.getElementById('jsRange')
 const mode = document.getElementById('jsMode')
 
-canvas.width = 700
-canvas.height = 700
+const INITIAL_COLOR = '#2e2e2e'
+const CANVAS_SIZE = 700
 
-//Context 의 default 값 설정
+// Variable 선언부
+canvas.width = CANVAS_SIZE
+canvas.height = CANVAS_SIZE
+
+// #1. Context 의 default 값 설정
 ctx.strokeStyle = '#2e2e2e'
+ctx.fillStyle = ''
 ctx.lineWidth = 2.5
 
+// #2. painting, filling boolean 선언
 let painting = false
 let filling = false
 
@@ -38,6 +45,7 @@ function onMouseMove(event) {
 function handleColorClick(event) {
   const color = event.target.style.backgroundColor
   ctx.strokeStyle = color
+  ctx.fillStyle = color
 }
 
 function handleRangeChange(event) {
@@ -49,27 +57,42 @@ function handleModeClick() {
   if (filling === true) {
     filling = false
     mode.innerText = 'Fill'
+    canvas.style.cursor = 'pointer'
   } else {
     filling = true
     mode.innerText = 'Paint'
+    canvas.style.cursor = 'copy'
   }
 }
 
+function handleCanvasClick() {
+  if (filling) {
+    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
+  }
+}
+
+// EventListenr
+
+// #1. Canvas
 if (canvas) {
   canvas.addEventListener('mousemove', onMouseMove)
   canvas.addEventListener('mousedown', startPainting)
   canvas.addEventListener('mouseup', stopPainting)
   canvas.addEventListener('mouseleave', stopPainting)
+  canvas.addEventListener('click', handleCanvasClick)
 }
 
+// #2. Color-picker
 Array.from(colors).forEach((color) =>
   color.addEventListener('click', handleColorClick)
 )
 
+// #3. Range input
 if (range) {
   range.addEventListener('input', handleRangeChange)
 }
 
+// #4. Fill - Paint button Mode
 if (mode) {
   mode.addEventListener('click', handleModeClick)
 }
