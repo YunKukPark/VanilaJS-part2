@@ -443,3 +443,34 @@ function handleModeClick() {
   }
 }
 ```
+
+> 여기 까지 실질적인 fill 을 다루는 함수는 구현 X
+
+5. canvas 에 Click EventListener 심기
+
+```javascript
+canvas.addEventListener('click', handleCanvasClick)
+```
+
+6. handleCanvasClick 함수만들기
+
+```javascript
+function handleCanvasClick() {
+  if (filling) {
+    ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
+  }
+}
+```
+
+7. `ctx.fillStyle` Default 변수 생성  
+   `ctx.fillStyle = ''`
+
+> handleColorClick 에서 같이 구동되게 설정
+
+```javascript
+function handleColorClick(event) {
+  const color = event.target.style.backgroundColor
+  ctx.strokeStyle = color
+  ctx.fillStyle = color
+}
+```
