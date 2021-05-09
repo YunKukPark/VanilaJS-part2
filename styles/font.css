@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'jsCanvas';
+  src: url('../assets/fonts/jsCanvas.eot?');
+  src: url('../assets/fonts/jsCanvas.eot?#iefix') format('embedded-opentype'),
+    url('../assets/fonts/jsCanvas.ttf?') format('truetype'),
+    url('../assets/fonts/jsCanvas.woff?') format('woff'),
+    url('../assets/fonts/jsCanvas.svg?#jsCanvas') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'jsCanvas' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-brush:before {
+  content: '\e900';
+}
+.ic-paint:before {
+  content: '\e901';
+}
