@@ -64,11 +64,11 @@ body {
   overflow: hidden;
   color: #000;
   transition: color 200ms ease-in-out;
+  z-index: 10;
 }
 
 .controls-btns .fill-btn:hover,
 .controls-btns .save-btn:hover {
-  color: #fff;
   background-color: transparent;
 }
 
@@ -77,13 +77,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  content: 'Fill';
+  content: '';
   top: 30px;
   left: 0;
   width: 80px;
+  height: 40px;
   padding: 5px 0;
-  background-color: #000;
-  opacity: 0.6;
+  background-color: #06f;
+  opacity: 0.2;
   transition: top 200ms ease-in-out;
 }
 
@@ -92,13 +93,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  content: 'Save';
-  top: -30px;
+  content: '';
+  top: -50px;
   left: 0;
   width: 80px;
+  height: 40px;
   padding: 5px 0;
-  background-color: #000;
-  opacity: 0.6;
+  background-color: #ff4747;
+  opacity: 0.2;
   transition: top 200ms ease-in-out;
 }
 
