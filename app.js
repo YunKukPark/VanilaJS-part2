@@ -41,7 +41,6 @@ function handleColorClick(event) {
 }
 
 function handleRangeChange(event) {
-  console.log(event.target.value)
   const strokeWidth = event.target.value
   ctx.lineWidth = strokeWidth
 }
@@ -50,11 +49,9 @@ function handleModeClick() {
   if (filling === true) {
     filling = false
     mode.innerText = 'Fill'
-    window.setComputedStyle(mode, '::before').content = 'Fill'
   } else {
     filling = true
     mode.innerText = 'Paint'
-    window.setComputedStyle(mode, '::before').content = 'Paint'
   }
 }
 
