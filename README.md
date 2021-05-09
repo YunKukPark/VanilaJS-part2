@@ -376,3 +376,70 @@ function handleColorClick(event) {
 > `event.target.style.backgroundColor` => **위 style Object 의 backgroundColor 값 반환**
 
 > **최종적으로 `ctx.strokeStyle` 에 값을 넣어주면, color-picker 를 클릭할 때 마다, 색깔이 계속해서 바뀌게 된다.**
+
+<br/>
+
+## 2.4 Brush-Size Control
+
+1. jsRange 를 담는 변수 선언
+
+```javascript
+const range = document.getElementById('jsRange')
+```
+
+2. range EventListener 심기 (input 이 변화되었을 때)
+
+```javascript
+if (range) {
+  range.addEventListener('input', handleRangeChange)
+}
+```
+
+3. handleRangeChange 함수 만들기
+
+> 해당 함수는 jsRange 의 Value 값을 얻어와 lineWidth 를 바꿔준다.
+
+```javascript
+function handleRangeChange(event) {
+  const strokeWidth = event.target.value
+  ctx.lineWidth = strokeWidth
+}
+```
+
+<br/>
+
+## 2.5 Filling-Mode
+
+1. jsMode 변수 선언
+
+```javascript
+const mode = document.getElementById('jsMode')
+```
+
+2. mode EventListener 심기 (click 되었을 때)
+
+```javascript
+if (mode) {
+  mode.addEventListener('click', handleModeClick)
+}
+```
+
+3. Filling Boolean check 변수 선언
+
+```javascript
+let filling = false
+```
+
+4. handleModeClick 함수 만들기
+
+```javascript
+function handleModeClick() {
+  if (filling === true) {
+    filling = false
+    mode.innerText = 'Fill'
+  } else {
+    filling = true
+    mode.innerText = 'Paint'
+  }
+}
+```
