@@ -4,7 +4,7 @@
 }
 
 body {
-  height: 100vh;
+  padding: 50px 0;
   background-color: #f6f9fc;
   font-family: 'Noto Sans KR', sans-serif;
   display: flex;
@@ -20,6 +20,32 @@ body {
   border-radius: 15px;
   margin-bottom: 50px;
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.status-module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.status-module .status-desc {
+  margin-right: 20px;
+}
+
+.current-status-module {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.current-mode .ic-paint {
+  display: none;
+}
+
+.current-mode .ic-brush,
+.current-mode .ic-paint {
+  margin-right: 20px;
 }
 
 .controls {
@@ -110,9 +136,18 @@ body {
 }
 
 .controls .controls-colors {
-  width: 500px;
+  width: 700px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.controls-colors.palette {
+  width: 700px;
+  height: 100px;
+  border-radius: 38px;
+  background: #f6f9fc;
+  box-shadow: 21px 21px 42px #c0c2c5, -21px -21px 42px #ffffff;
 }
 
 .controls-colors .color-picker {

@@ -9,13 +9,22 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./styles/font.css" />
     <link rel="stylesheet" href="./styles/reset.css" />
     <link rel="stylesheet" href="./styles/style.css" />
     <title>PaintJS</title>
   </head>
   <body>
     <canvas id="jsCanvas" class="canvas"></canvas>
-    <div class="controls">
+
+    <div class="status-module">
+      <em class="status-desc">Status</em>
+      <div class="current-status-module">
+        <div class="current-mode">
+          <i class="ic-brush"></i>
+          <i class="ic-paint"></i>
+        </div>
+      </div>
       <div class="controls-range">
         <input
           type="range"
@@ -26,13 +35,15 @@
           step="0.1"
         />
       </div>
+    </div>
 
+    <div class="controls">
       <div class="controls-btns">
         <button class="fill-btn" id="jsMode">Fill</button>
         <button class="save-btn" id="jsSave">Save</button>
       </div>
 
-      <div class="controls-colors" id="jsColor">
+      <div class="controls-colors palette" id="jsColor">
         <div
           class="color-picker jsColor"
           style="background-color: #2c2c2c"

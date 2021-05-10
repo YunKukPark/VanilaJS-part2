@@ -27,7 +27,9 @@ i {
 
 .ic-brush:before {
   content: '\e900';
+  -webkit-text-stroke: 0.5px #5e5e5e;
 }
 .ic-paint:before {
   content: '\e901';
+  -webkit-text-stroke: 0.5px #5e5e5e;
 }

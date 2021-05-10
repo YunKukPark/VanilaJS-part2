@@ -5,6 +5,9 @@ const colors = document.getElementsByClassName('jsColor')
 const range = document.getElementById('jsRange')
 const mode = document.getElementById('jsMode')
 
+const brush = document.querySelector('.ic-brush')
+const paint = document.querySelector('.ic-paint')
+
 const INITIAL_COLOR = '#2e2e2e'
 const CANVAS_SIZE = 700
 
@@ -16,6 +19,9 @@ canvas.height = CANVAS_SIZE
 ctx.strokeStyle = '#2e2e2e'
 ctx.fillStyle = ''
 ctx.lineWidth = 2.5
+
+brush.style.color = INITIAL_COLOR
+paint.style.color = INITIAL_COLOR
 
 // #2. painting, filling boolean 선언
 let painting = false
@@ -46,6 +52,8 @@ function handleColorClick(event) {
   const color = event.target.style.backgroundColor
   ctx.strokeStyle = color
   ctx.fillStyle = color
+  brush.style.color = color
+  paint.style.color = color
 }
 
 function handleRangeChange(event) {
@@ -58,10 +66,14 @@ function handleModeClick() {
     filling = false
     mode.innerText = 'Fill'
     canvas.style.cursor = 'pointer'
+    brush.style.display = 'block'
+    paint.style.display = 'none'
   } else {
     filling = true
     mode.innerText = 'Paint'
     canvas.style.cursor = 'copy'
+    brush.style.display = 'none'
+    paint.style.display = 'block'
   }
 }
 
