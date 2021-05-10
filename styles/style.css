@@ -173,6 +173,11 @@ body {
   box-shadow: inset 6px 6px 12px #e0e3e5, inset -6px -6px 12px #ffffff;
 }
 
+.controls-colors .color-picker.transparent:hover {
+  cursor: not-allowed;
+  top: 0;
+}
+
 .controls .controls-range {
   margin-bottom: 20px;
 }
