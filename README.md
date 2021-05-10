@@ -474,3 +474,51 @@ function handleColorClick(event) {
   ctx.fillStyle = color
 }
 ```
+
+## 2.6 Saving The Image
+
+1. saveBtn 변수 선언
+
+```javascript
+const saveBtn = document.getElementById('jsSave')
+```
+
+2. saveBtn EventListener 심기 (click 되었을 때)
+
+```javascript
+if (saveBtn) {
+  saveBtn.addEventListener('click', handleSaveClick)
+}
+```
+
+3. Canvas 내부 Right Click Prevent
+
+```javascript
+canvas.addEventListener('contextmenu', handleRightClick)
+```
+
+4. handleSaveClick, handleRightClick 함수 구현
+
+```javascript
+function handleRightClick(event) {
+  event.preventDefault()
+}
+
+function handleSaveClick() {
+  const image = canvas.toDataURL()
+  const link = document.createElement('a')
+  link.href = image
+  link.download = 'Your picture'
+  link.click()
+}
+```
+
+---
+
+<p style ="text-align:center">End-Of-Study Note</p>
+
+---
+
+## 회고록
+
+> 연재 예정
