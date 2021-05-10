@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d')
 const colors = document.getElementsByClassName('jsColor')
 const range = document.getElementById('jsRange')
 const mode = document.getElementById('jsMode')
+const saveBtn = document.getElementById('jsSave')
 
 const brush = document.querySelector('.ic-brush')
 const paint = document.querySelector('.ic-paint')
@@ -16,9 +17,16 @@ canvas.width = CANVAS_SIZE
 canvas.height = CANVAS_SIZE
 
 // #1. Context 의 default 값 설정
+
+// #1.1 Canvas 백지로 INIT
+ctx.fillStyle = '#fff'
+ctx.fillRect(0, 0, CANVAS_SIZE, CANVAS_SIZE)
+
+// #1.2 Canvas Stroke color,linewidth INIT
 ctx.strokeStyle = '#2e2e2e'
 ctx.fillStyle = ''
 ctx.lineWidth = 2.5
+ctx.imageSmoothingEnabled = true
 
 brush.style.color = INITIAL_COLOR
 paint.style.color = INITIAL_COLOR
@@ -83,6 +91,17 @@ function handleCanvasClick() {
   }
 }
 
+function handleRightClick(event) {
+  event.preventDefault()
+}
+
+function handleSaveClick() {
+  const image = canvas.toDataURL()
+  const link = document.createElement('a')
+  link.href = image
+  link.download = 'Your picture'
+  link.click()
+}
 // EventListenr
 
 // #1. Canvas
@@ -92,6 +111,7 @@ if (canvas) {
   canvas.addEventListener('mouseup', stopPainting)
   canvas.addEventListener('mouseleave', stopPainting)
   canvas.addEventListener('click', handleCanvasClick)
+  canvas.addEventListener('contextmenu', handleRightClick)
 }
 
 // #2. Color-picker
@@ -107,4 +127,8 @@ if (range) {
 // #4. Fill - Paint button Mode
 if (mode) {
   mode.addEventListener('click', handleModeClick)
+}
+
+if (saveBtn) {
+  saveBtn.addEventListener('click', handleSaveClick)
 }
