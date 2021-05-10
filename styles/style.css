@@ -31,6 +31,8 @@ body {
 
 .status-module .status-desc {
   margin-right: 20px;
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 .current-status-module {
@@ -163,6 +165,12 @@ body {
 
 .controls-colors .color-picker:hover {
   top: -5px;
+}
+
+.controls-colors .color-picker.transparent {
+  border-radius: 50%;
+  background: #f6f9fc;
+  box-shadow: inset 6px 6px 12px #e0e3e5, inset -6px -6px 12px #ffffff;
 }
 
 .controls .controls-range {
